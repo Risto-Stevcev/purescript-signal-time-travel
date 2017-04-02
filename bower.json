@@ -4,6 +4,10 @@
   "description": "A time travel debugger for purescript-signal",
   "author": "Risto Stevcev",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Risto-Stevcev/purescript-signal-time-travel.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
