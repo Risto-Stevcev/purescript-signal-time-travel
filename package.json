@@ -1,0 +1,24 @@
+{
+  "name": "purescript-signal-time-travel",
+  "version": "1.0.0",
+  "description": "A time travel debugger for purescript-signal",
+  "author": "Risto Stevcev",
+  "license": "MIT",
+  "main": "output/Signal.TimeTravel/index.js",
+  "directories": {
+    "src": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/bower install",
+    "pulp:watch": "pulp --watch build -m Signal.TimeTravel -- --censor-lib --stash --source-maps",
+    "pulp:build": "pulp build -m Signal.TimeTravel -- --censor-lib --stash --source-maps",
+    "pulp:test": "pulp --watch test -- --censor-lib --stash --source-maps | sed -e \"s/\\[90m/\\[38;2;0;128;128m/\"",
+    "pulp:run": "npm run pulp:build && pulp run",
+    "test": "npm run pulp:test"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "purescript-psa": "^0.4.0"
+  }
+}

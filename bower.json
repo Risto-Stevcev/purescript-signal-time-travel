@@ -1,0 +1,25 @@
+{
+  "name": "purescript-signal-time-travel",
+  "version": "1.0.0",
+  "description": "A time travel debugger for purescript-signal",
+  "author": "Risto Stevcev",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^2.5.0",
+    "purescript-console": "^2.0.0",
+    "purescript-arrays": "^3.2.1",
+    "purescript-st": "^2.0.0",
+    "purescript-signal": "^8.1.0",
+    "purescript-maybe": "^2.1.1"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^2.0.0",
+    "purescript-spec": "^0.12.4"
+  }
+}
