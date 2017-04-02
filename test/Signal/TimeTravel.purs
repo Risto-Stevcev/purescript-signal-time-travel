@@ -93,7 +93,7 @@ main = do
       describe "prev" do
         it "should move the pointer to the previous action" do
           { currentState: oldState } ← getState
-          liftEff $ timeTravel.prev unit
+          liftEff $ timeTravel.prev
           { pointer, breadcrumb, currentState } ← getState 
 
           length breadcrumb `shouldEqual` 3
@@ -108,7 +108,7 @@ main = do
 
         it "should move the pointer again to the initial action" do
           { currentState: oldState } ← getState
-          liftEff $ timeTravel.prev unit
+          liftEff $ timeTravel.prev
           { pointer, breadcrumb, currentState } ← getState 
 
           length breadcrumb `shouldEqual` 3
@@ -123,7 +123,7 @@ main = do
 
         it "should not move past the initial action" do
           { currentState: oldState } ← getState
-          liftEff $ timeTravel.prev unit
+          liftEff $ timeTravel.prev
           { pointer, breadcrumb, currentState } ← getState 
 
           length breadcrumb `shouldEqual` 3
@@ -139,7 +139,7 @@ main = do
       describe "next" do
         it "should move the pointer to the next action" do
           { currentState: oldState } ← getState
-          liftEff $ timeTravel.next unit
+          liftEff $ timeTravel.next
           { pointer, breadcrumb, currentState } ← getState 
 
           length breadcrumb `shouldEqual` 3
@@ -174,7 +174,7 @@ main = do
           { pointer: oldPointer, breadcrumb } ← getState 
           oldPointer `shouldEqual` ((length breadcrumb) - 1)
 
-          liftEff $ timeTravel.next unit
+          liftEff $ timeTravel.next
 
           { pointer } ← getState
           pointer `shouldEqual` ((length breadcrumb) - 1)

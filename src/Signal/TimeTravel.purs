@@ -27,12 +27,11 @@ next
   → STRef {action ∷ action, state ∷ state} Int
   → STRef {action ∷ action, state ∷ state} Boolean 
   → Channel action
-  → Unit
   → Eff ( st ∷ ST {action ∷ action, state ∷ state}
         , channel ∷ CHANNEL
         | effects
         ) Unit
-next breadcrumb' pointer sentAction channel _ = do
+next breadcrumb' pointer sentAction channel = do
   breadcrumb ← freeze breadcrumb'
   modifySTRef pointer (increment ((length breadcrumb) - 1))
   index ← readSTRef pointer
@@ -49,12 +48,11 @@ prev
   → STRef {action ∷ action, state ∷ state} Int
   → STRef {action ∷ action, state ∷ state} Boolean 
   → Channel action
-  → Unit
   → Eff ( st ∷ ST {action ∷ action, state ∷ state}
         , channel ∷ CHANNEL
         | effects
         ) Unit
-prev breadcrumb' pointer sentAction channel _ = do
+prev breadcrumb' pointer sentAction channel = do
   breadcrumb ← freeze breadcrumb'
   modifySTRef pointer decrement
   index ← readSTRef pointer
@@ -116,8 +114,8 @@ initialize
         | effects
         )
         { send ∷ action → Eff (channel ∷ CHANNEL | effects) Unit
-        , prev ∷ Unit → Eff (st ∷ ST {action ∷ action, state ∷ state}, channel ∷ CHANNEL | effects) Unit
-        , next ∷ Unit → Eff (st ∷ ST {action ∷ action, state ∷ state}, channel ∷ CHANNEL | effects) Unit
+        , prev ∷ Eff (st ∷ ST {action ∷ action, state ∷ state}, channel ∷ CHANNEL | effects) Unit
+        , next ∷ Eff (st ∷ ST {action ∷ action, state ∷ state}, channel ∷ CHANNEL | effects) Unit
         , read ∷ Eff effects' { breadcrumb ∷ STArray {action ∷ action, state ∷ state} {action ∷ action, state ∷ state}
                               , pointer ∷ STRef {action ∷ action, state ∷ state} Int
                               }
