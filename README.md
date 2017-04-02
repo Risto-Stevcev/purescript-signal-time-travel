@@ -3,7 +3,7 @@
 A time travel debugger for [purescript-signal](https://github.com/bodil/purescript-signal)
 
 
-# Usage
+# usage
 
 Provide your `channel` and the `update` function that you want to wrap to the `initialize` function:
 
@@ -30,6 +30,6 @@ See the [purescript-starter-template](https://github.com/Risto-Stevcev/purescrip
 example use case.
 
 
-# License
+# license
 
 Licensed under the MIT license
